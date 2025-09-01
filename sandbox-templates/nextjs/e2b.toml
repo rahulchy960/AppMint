@@ -1,0 +1,17 @@
+# This is a config for E2B sandbox template.
+# You can use template ID (cpqtfsjf5dkyca2doc4z) or template name (appmint-nextjs-test-2) to create a sandbox:
+
+# Python SDK
+# from e2b import Sandbox, AsyncSandbox
+# sandbox = Sandbox("appmint-nextjs-test-2") # Sync sandbox
+# sandbox = await AsyncSandbox.create("appmint-nextjs-test-2") # Async sandbox
+
+# JS SDK
+# import { Sandbox } from 'e2b'
+# const sandbox = await Sandbox.create('appmint-nextjs-test-2')
+
+team_id = "833c030b-2ff9-4194-9c9f-e220ce49b39d"
+start_cmd = "/compile_page.sh"
+dockerfile = "e2b.Dockerfile"
+template_name = "appmint-nextjs-test-2"
+template_id = "cpqtfsjf5dkyca2doc4z"
