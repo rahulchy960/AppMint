@@ -19,6 +19,7 @@ export const MessagesContainer = ({
     setActiveFragment
     }: Props) => {
   const bottomRef = useRef<HTMLDivElement>(null);
+  const lastAssistantMessageIdRef = useRef<string | null>(null);
   const trpc = useTRPC();
 
   const { data: messages } = useSuspenseQuery(trpc.messages.getMany.queryOptions({
@@ -28,14 +29,18 @@ export const MessagesContainer = ({
     refetchInterval: 5000,
   }));
   
-  // useEffect( () => {
-  //   const lastAssistentMessageWithFragment = messages.findLast(
-  //     (message) => message.role === 'ASSISTANT' && !!message.fragment,
-  //   );
-  //   if (lastAssistentMessageWithFragment) {
-  //     setActiveFragment(lastAssistentMessageWithFragment.fragment)
-  //   }
-  // }, [messages, setActiveFragment]);
+  useEffect( () => {
+    const lastAssistantMessage = messages.findLast(
+      (message) => message.role === 'ASSISTANT'
+    );
+
+    if(lastAssistantMessage?.fragment &&
+       lastAssistantMessage.id !== lastAssistantMessageIdRef.current
+    ) {
+      setActiveFragment(lastAssistantMessage.fragment);
+      lastAssistantMessageIdRef.current = lastAssistantMessage.id;
+    }
+  }, [messages, setActiveFragment]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView();
@@ -46,7 +51,7 @@ export const MessagesContainer = ({
 
   return (
     <div className="flex flex-col flex-1 min-h-0 ">
-      <div className=" flex-1 min-h-0 overflow-y-auto ">
+      <div className=" flex-1 min-h-0 overflow-y-auto hide-scrollbar">
         <div className=" pt-2 pr-1- ">
           {messages.map((message) => (
             <MessageCard 
