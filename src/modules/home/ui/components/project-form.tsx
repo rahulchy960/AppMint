@@ -40,8 +40,10 @@ export const ProjectForm = () => {
       queryClient.invalidateQueries(
         trpc.projects.getMany.queryOptions(),
       );
-      router.push(`/projects/${data.id}`)
-      // TODO: Invalidate usage status
+      queryClient.invalidateQueries(
+        trpc.usage.status.queryOptions(),
+      )
+      router.push(`/projects/${data.id}`);
     },
     onError: (error) => {
       
