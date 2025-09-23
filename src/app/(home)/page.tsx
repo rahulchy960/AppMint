@@ -10,8 +10,8 @@ const Page = () => {
           <Image
             src="/logo.svg"
             alt="AppMint"
-            width={40}
-            height={40}
+            width={48}
+            height={48}
             className="hidden md:block"
           />
         </div>

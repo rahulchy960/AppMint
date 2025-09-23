@@ -47,22 +47,17 @@ export const PROJECT_TEMPLATES = [
     prompt:
       "Build a Spotify-style music player with a sidebar for playlists, a main area for song details, and playback controls. Use local state for managing playback and song selection. Prioritize layout balance and intuitive control placement for a smooth user experience. Use dark mode.",
   },
-  // {
-  //   emoji: "💸",
-  //   title: "Build an expense tracker",
-  //   prompt:
-  //     "Build a single-page expense tracker. Include: add/edit/delete transactions (id, type: income/expense, amount, category, date, note), date-range filter, running balance, monthly totals, and a category breakdown visualization (use simple UI or install Recharts via terminal). Requirements: responsive layout, clear hover/focus states, and clean component structure"
-  // },
-  // {
-  //   emoji: "✅",
-  //   title: "Build a todo list",
-  //   prompt:
-  //     "Build a single-page todo app. Include: add/edit/delete, priorities, due dates, and statuses (todo/in-progress/done); filters (status/priority/due), quick search, and inline editing. Requirements: consistent spacing, focus rings, subtle hover, responsive layout, and modular components"
-  // },
-  // {
-  //   emoji: "📚",
-  //   title: "Build a library inventory manager",
-  //   prompt:
-  //     "Build a single-page library inventory manager (no APIs). Track books (title, author, genre, ISBN, quantity, status). Include: add/edit/delete, check-in/check-out (adjust quantity/status), low-stock highlighting, search, and client-side pagination in a responsive table. Requirements: clear badges for status, accessible dialogs/actions, tidy component structure and no external data sources."
-  // }
+  {
+    emoji: "💸",
+    title: "Build an expense tracker",
+    prompt:
+      "Build a single-page expense tracker. Include: add/edit/delete transactions, Add a resizable panel for incomes and expenses in home page, show current balance, monthly totals, use simple and UI. Requirements: responsive layout, clear hover/focus states, and clean component structure"
+  },
+  {
+    emoji: "✅",
+    title: "Build a todo list",
+    prompt:
+      "Build a single-page todo app. Include: add/edit/delete, priorities, due dates, and statuses (todo/in-progress/done); filters (status/priority/due), quick search, and inline editing. Requirements: consistent spacing, focus rings, subtle hover, responsive layout, and modular components"
+  },
+
 ] as const;
