@@ -3,7 +3,7 @@ export const PROJECT_TEMPLATES = [
     emoji: "🎬",
     title: "Build a Netflix clone",
     prompt:
-      "Build a Netflix-style homepage with a hero banner (use a nice, dark-mode compatible gradient here), movie sections, responsive cards, and a modal for viewing details using mock data and local state. Use dark mode.",
+      "Build a Netflix-style homepage with a hero banner (use a nice, dark-mode compatible gradient here), movie sections, responsive cards, and a modal for viewing details using mock data and local state. Use dark mode and be careful about the colors .",
   },
   {
     emoji: "📦",
@@ -15,7 +15,7 @@ export const PROJECT_TEMPLATES = [
     emoji: "📋",
     title: "Build a kanban board",
     prompt:
-      "Build a kanban board with drag-and-drop using react-beautiful-dnd and support for adding and removing tasks with local state. Use consistent spacing, column widths, and hover effects for a polished UI.",
+      "Build a kanban board with drag-and-drop feature and support for adding and removing tasks with local state. Use consistent spacing, column widths, and hover effects for a polished UI.",
   },
   {
     emoji: "🗂️",
