@@ -17,6 +17,7 @@ export const codeAgentFunction = inngest.createFunction(
   async ({ event, step }) => {
     const sandboxId = await step.run("get-sandbox-id", async ()=> {
       const sandbox = await Sandbox.create("appmint-nextjs-test-2");
+      await sandbox.setTimeout(60_000 * 3 * 10);  // 30 min
       return sandbox.sandboxId
     });
 
@@ -28,8 +29,9 @@ export const codeAgentFunction = inngest.createFunction(
           projectId: event.data.projectId,
         },
         orderBy: {
-          createdAt: "asc",
+          createdAt: "desc",
         },
+        take: 5,
       });
 
       for (const message of messages) {
@@ -40,7 +42,7 @@ export const codeAgentFunction = inngest.createFunction(
         })
       }
 
-      return formattedMessages;
+      return formattedMessages.reverse() ;
 
     });
 
@@ -185,7 +187,7 @@ export const codeAgentFunction = inngest.createFunction(
       description: "A fragment title generator",
       system: FRAGMENT_TITLE_PROMPT,
       model: openai({ 
-        model: "gpt-4",
+        model: "gpt-5-mini",
       }),
     });
 
@@ -194,7 +196,7 @@ export const codeAgentFunction = inngest.createFunction(
       description: "A response generator",
       system: RESPONSE_PROMPT,
       model: openai({ 
-        model: "gpt-4",
+        model: "gpt-5-mini",
       }),
     });
 
