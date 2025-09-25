@@ -26,7 +26,7 @@ export const MessagesContainer = ({
     projectId: projectId,
   }, {
     // TODO: temporary live message update
-    refetchInterval: 5000,
+    refetchInterval: 2000,
   }));
   
   useEffect( () => {
